@@ -7,7 +7,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
-import zip
+import zipfile 
 
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
