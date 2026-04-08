@@ -1,11 +1,3 @@
-# PROMPT TO RUN CODE ON LOCAL HOST
-#  To run this code on your local host, follow these steps:
-# 1.
-#  cd "c:\Users\Aman Srivastav\OneDrive\Desktop\machine learning project\all-about-olympics\olympics_analysis_web_app"
-
-# 2. 
-#  python -m streamlit run app.py
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -15,13 +7,16 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+import zip
 
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(script_dir)
 
 
-df = pd.read_csv('athlete_events.csv')
+with zipfile.ZipFile('athlete_events.zip') as z:
+    with z.open('athlete_events.csv') as f:
+        df = pd.read_csv(f)
 region_df = pd.read_csv('noc_regions.csv')
 
 df = preprocessor.preprocess(df, region_df)
